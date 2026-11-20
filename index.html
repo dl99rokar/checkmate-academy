@@ -92,7 +92,7 @@ function renderBoard(){
  if(game.isCheck()){for(let r=0;r<8;r++)for(let c=0;c<8;c++){let p=game.board()[r][c];if(p&&p.type==='k'&&p.color===game.turn())checked=sqName(r,c);}}
  for(const r of rows)for(const c of cols){
   const sq=sqName(r,c),p=pieceAt(sq),d=document.createElement('div');
-  d.className='sq '+((r+c)%2?'dark':'light');d.dataset.square=sq;d.setAttribute('role','gridcell');d.setAttribute('aria-label',sq);
+  d.className='sq '+((r+c)%2?'light':'dark');d.dataset.square=sq;d.setAttribute('role','gridcell');d.setAttribute('aria-label',sq);
   if(sq===selected)d.classList.add('selected');
   if(lastMove&&(sq===lastMove.from||sq===lastMove.to))d.classList.add('last');
   if(sq===checked)d.classList.add('check');
