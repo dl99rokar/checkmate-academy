@@ -2,15 +2,20 @@
 
 A free, mobile-friendly chess practice website.
 
-## Open the website
+## Publish the website for free
 
-After GitHub Pages finishes its first deployment, visit:
+This repository contains a static `index.html` file in its root. Enable GitHub Pages once:
+
+1. Open **Settings → Pages** in this repository.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+3. Set **Branch** to `main` and folder to `/(root)`.
+4. Click **Save**.
+
+The website address will be:
 
 **https://dl99rokar.github.io/checkmate-academy/**
 
-## Deploy
-
-This public repository includes a GitHub Actions workflow at `.github/workflows/deploy-pages.yml`. It publishes `index.html` to GitHub Pages on every push to `main`. The workflow also enables Pages for the repository. No Render account or payment card is needed.
+No payment card or paid hosting account is needed.
 
 ## Included
 
