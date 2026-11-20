@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101713">
+<meta name="description" content="Checkmate Academy — a free chess training room. Play, learn and improve.">
+<title>Checkmate Academy — Play & Improve</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9A%3C/text%3E%3C/svg%3E">
+<style>
+:root{color-scheme:dark;--bg:#0c120f;--panel:#151e19;--panel2:#1b2821;--line:#2a3a31;--text:#eef4ee;--muted:#9eafa3;--green:#78ba83;--green2:#477d53;--gold:#d5b26c;--light:#e7e3d2;--dark:#769277;--red:#d36e6e;--shadow:0 18px 50px #0006}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1c3024 0,transparent 38%),var(--bg);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial;color:var(--text)}button,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:11px;padding:10px 14px;background:#202c24;color:var(--text);transition:.15s}button:hover{border-color:#60886b;background:#26372c}button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline-offset:2px}.primary{background:var(--green2);border-color:var(--green2);color:white;font-weight:700}.primary:hover{background:#568f62}.subtle{background:transparent}.app{max-width:1300px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#a8d4a4,#477d53);display:grid;place-items:center;color:#102016;font-size:26px;font-weight:900}.brand h1{margin:0;font-size:20px;letter-spacing:.2px}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.free{font-size:12px;color:#b9dfbd;border:1px solid #456c4d;background:#1a2a1d;border-radius:99px;padding:5px 10px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.tab.active{background:#335e3b;border-color:#477d53}.layout{display:grid;grid-template-columns:minmax(320px,680px) minmax(290px,1fr);gap:22px;align-items:start}.card{background:linear-gradient(160deg,#18231c,#121a15);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.board-card{padding:18px}.board-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}.opponent{display:flex;align-items:center;gap:10px;min-width:0}.avatar{width:37px;height:37px;border-radius:12px;background:#2b3c30;display:grid;place-items:center;font-size:21px}.opponent strong{display:block;font-size:14px}.opponent small{color:var(--muted)}.turn{font-size:12px;color:#bedfc1;border:1px solid #3d5d43;background:#1c2b20;padding:5px 9px;border-radius:99px;white-space:nowrap}.board{display:grid;grid-template-columns:repeat(8,1fr);aspect-ratio:1;border:7px solid #29372d;border-radius:10px;overflow:hidden;position:relative;touch-action:pan-y;user-select:none}.sq{position:relative;display:grid;place-items:center;aspect-ratio:1;color:#172019;font-size:clamp(27px,5.1vw,58px);line-height:1;cursor:pointer}.sq.light{background:var(--light)}.sq.dark{background:var(--dark)}.sq.selected{box-shadow:inset 0 0 0 5px #e4c56b}.sq.last{background-image:linear-gradient(#e8d47766,#e8d47766)}.sq.check{background-image:radial-gradient(circle,#e44b4b 0,#b72e2eaa 70%,transparent 72%)}.sq.target:after{content:"";width:25%;height:25%;border-radius:50%;background:#25372a65;position:absolute}.sq.capture:after{content:"";width:82%;height:82%;border:5px solid #24372a88;border-radius:50%;position:absolute}.piece{position:relative;z-index:1;filter:drop-shadow(0 2px 1px #0005);cursor:grab}.piece.white{color:#fffdf0;text-shadow:0 1px 2px #1b291c,1px 0 #243b26,-1px 0 #243b26,0 -1px #243b26}.piece.black{color:#202b23;text-shadow:0 1px 1px #e9ebd8aa}.coord{position:absolute;left:4px;bottom:1px;font-size:10px;font-weight:700;opacity:.7;z-index:2}.light .coord{color:#50664f}.dark .coord{color:#f3f1dd}.under-board{display:flex;justify-content:space-between;gap:10px;margin-top:12px;color:var(--muted);font-size:12px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.controls button{flex:1;min-width:100px}.side{display:grid;gap:14px}.section{padding:18px}.section h2{font-size:15px;margin:0 0 12px}.section p{margin:0;color:var(--muted)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.field select{width:100%;background:#202c24;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px}.coach-note{border-left:3px solid var(--green);padding:10px 12px;background:#1a2a20;border-radius:0 10px 10px 0;color:#dce9dd;font-size:14px}.coach-title{display:flex;align-items:center;gap:8px;margin-bottom:10px}.coach-title span{font-size:20px}.history{max-height:240px;overflow:auto}.move-row{display:grid;grid-template-columns:32px 1fr 1fr;gap:8px;padding:7px 4px;border-bottom:1px solid #ffffff0d;font-variant-numeric:tabular-nums}.move-row:nth-child(odd){background:#ffffff05}.move-no{color:var(--muted)}.move{font-weight:600}.moves-empty{color:var(--muted);font-size:13px;padding:10px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#202c24;padding:10px;border-radius:11px}.stat b{display:block;font-size:19px}.stat small{color:var(--muted);font-size:11px}.learn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.lesson{padding:16px;background:#17231b;border:1px solid var(--line);border-radius:14px}.lesson strong{display:block;margin-bottom:5px}.lesson p{font-size:13px}.footer{margin:28px 0 8px;color:#85978b;text-align:center;font-size:12px}.notice{margin-top:12px;color:#d7c18f;font-size:12px}.hide{display:none!important}@media(max-width:900px){.layout{grid-template-columns:1fr;max-width:680px;margin:auto}.app{padding:16px}.side{grid-template-columns:1fr 1fr}.coach-section{grid-column:1/-1}}@media(max-width:560px){.app{padding:10px}.top{margin-bottom:16px}.brand h1{font-size:17px}.free{display:none}.board-card{padding:10px}.board{border-width:4px}.sq{font-size:clamp(25px,9vw,44px)}.side{grid-template-columns:1fr}.coach-section{grid-column:auto}.section{padding:14px}.learn-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand"><div class="logo">♞</div><div><h1>Checkmate Academy</h1><p>Play smarter. Learn every move.</p></div></div><span class="free">100% free · No account</span></header>
+<nav class="tabs" aria-label="Main sections"><button class="tab active" data-tab="play">♟ Play</button><button class="tab" data-tab="learn">✦ Learn</button></nav>
+<main id="play" class="layout">
+<section class="card board-card">
+<div class="board-top"><div class="opponent"><div class="avatar" id="opAvatar">🤖</div><div><strong id="opName">Academy Bot</strong><small id="opLabel">Beginner training opponent</small></div></div><span class="turn" id="turnLabel">White to move</span></div>
+<div id="board" class="board" role="grid" aria-label="Chess board"></div>
+<div class="under-board"><span id="boardHint">Choose a piece, then choose a highlighted square.</span><span id="material">Material even</span></div>
+<div class="controls"><button class="primary" id="newGame">New game</button><button id="undo">↶ Undo</button><button id="flip">⇅ Flip board</button></div>
+<div class="notice">The Academy Bot uses a small local search, not Stockfish. It is a practice opponent, not a grandmaster-level engine.</div>
+</section>
+<aside class="side">
+<section class="card section">
+<h2>Game settings</h2>
+<div class="form-row">
+<div class="field"><label for="mode">Opponent</label><select id="mode"><option value="computer">Academy Bot</option><option value="local">Play a friend</option></select></div>
+<div class="field"><label for="side">Play as</label><select id="side"><option value="w">White</option><option value="b">Black</option></select></div>
+<div class="field" id="strengthField"><label for="strength">Bot level</label><select id="strength"><option value="1">1 · Beginner</option><option value="2" selected>2 · Club</option><option value="3">3 · Challenging</option></select></div>
+<div class="field"><label for="coachLevel">Coach style</label><select id="coachLevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+</div>
+</section>
+<section class="card section coach-section">
+<div class="coach-title"><span>🎓</span><h2 style="margin:0">Your chess coach</h2></div>
+<div class="coach-note" id="coach">Welcome! Start with a simple goal: control the center, develop your pieces, and keep your king safe. Make your first move when you're ready.</div>
+<div class="controls"><button id="hint">Give me a hint</button><button id="principle">Think checklist</button></div>
+</section>
+<section class="card section">
+<h2>Move history</h2><div id="history" class="history"><div class="moves-empty">Your moves will appear here.</div></div>
+</section>
+<section class="card section">
+<h2>Session</h2><div class="stats"><div class="stat"><b id="movesCount">0</b><small>Half-moves</small></div><div class="stat"><b id="captures">0</b><small>Captures</small></div><div class="stat"><b id="gamesCount">0</b><small>Games played</small></div></div>
+</section>
+</aside>
+</main>
+<section id="learn" class="hide">
+<div class="card section" style="margin-bottom:16px"><h2>Start with the fundamentals</h2><p>Strong chess comes from repeating a few good habits. Learn one idea, then look for it in your next game.</p></div>
+<div class="learn-grid">
+<article class="lesson"><strong>1. Control the center</strong><p>The four central squares help your pieces reach both sides of the board. Try to influence them with pawns and pieces.</p></article>
+<article class="lesson"><strong>2. Develop your pieces</strong><p>Bring knights and bishops into the game early. Avoid moving the same piece repeatedly without a clear reason.</p></article>
+<article class="lesson"><strong>3. Keep your king safe</strong><p>Castling usually gets your king away from the center and brings a rook toward the middle.</p></article>
+<article class="lesson"><strong>4. Check before every move</strong><p>Ask: Can my opponent check me, capture something, or create a direct threat?</p></article>
+<article class="lesson"><strong>5. Know your pieces</strong><p>Queen moves in every straight or diagonal direction. Rooks move straight, bishops diagonally, knights in an L-shape, and kings one square.</p></article>
+<article class="lesson"><strong>6. Win by checkmate</strong><p>The goal is to attack the enemy king so it is in check and has no legal way to escape. Capturing the king is not a chess move.</p></article>
+</div>
+<div class="card section" style="margin-top:16px"><h2>Before you move — a simple checklist</h2><p>1. What is my opponent threatening? &nbsp; 2. Is any of my piece undefended? &nbsp; 3. Can I improve a piece or win material safely? &nbsp; 4. Is my king safe?</p></div>
+</section>
+<footer class="footer">Checkmate Academy · Free chess practice in your browser · Your games stay on this device</footer>
+</div>
+<script type="module">
+import { Chess } from 'https://esm.sh/chess.js@1.4.0';
+const $=id=>document.getElementById(id);
+let game=new Chess(), mode='computer', human='w', orientation='w', selected=null, targets=[], lastMove=null, botBusy=false, captures=0, games=Number(localStorage.getItem('cma-games')||0), completed=false;
+$('gamesCount').textContent=games;
+const glyph={wk:'♔',wq:'♕',wr:'♖',wb:'♗',wn:'♘',wp:'♙',bk:'♚',bq:'♛',br:'♜',bb:'♝',bn:'♞',bp:'♟'};
+const files='abcdefgh';
+function sqName(r,c){return files[c]+(8-r)}
+function getCoords(sq){return [8-Number(sq[1]),files.indexOf(sq[0])]}
+function pieceAt(sq){return game.get(sq)}
+function canHumanMove(){return !botBusy&&!game.isGameOver()&&(mode==='local'||game.turn()===human)}
+function coach(text){$('coach').textContent=text}
+function setStatus(){
+ let msg=game.turn()==='w'?'White to move':'Black to move';
+ if(game.isCheckmate())msg=(game.turn()==='w'?'Black':'White')+' wins by checkmate';
+ else if(game.isStalemate())msg='Draw · stalemate';
+ else if(game.isThreefoldRepetition())msg='Draw · repetition';
+ else if(game.isInsufficientMaterial())msg='Draw · insufficient material';
+ else if(game.isDraw())msg='Draw';
+ else if(game.isCheck())msg+=' · check!';
+ $('turnLabel').textContent=msg;
+ if(game.isGameOver()&&!completed){completed=true;games++;localStorage.setItem('cma-games',games);$('gamesCount').textContent=games;coach(msg+'. Review the game and look for the moment the position changed.');}
+}
+function renderBoard(){
+ const el=$('board');el.innerHTML='';
+ const rows=orientation==='w'?[0,1,2,3,4,5,6,7]:[7,6,5,4,3,2,1,0];
+ const cols=orientation==='w'?[0,1,2,3,4,5,6,7]:[7,6,5,4,3,2,1,0];
+ let checked=null;
+ if(game.isCheck()){for(let r=0;r<8;r++)for(let c=0;c<8;c++){let p=game.board()[r][c];if(p&&p.type==='k'&&p.color===game.turn())checked=sqName(r,c);}}
+ for(const r of rows)for(const c of cols){
+  const sq=sqName(r,c),p=pieceAt(sq),d=document.createElement('div');
+  d.className='sq '+((r+c)%2?'dark':'light');d.dataset.square=sq;d.setAttribute('role','gridcell');d.setAttribute('aria-label',sq);
+  if(sq===selected)d.classList.add('selected');
+  if(lastMove&&(sq===lastMove.from||sq===lastMove.to))d.classList.add('last');
+  if(sq===checked)d.classList.add('check');
+  const t=targets.find(m=>m.to===sq);if(t)d.classList.add(p?'capture':'target');
+  if(p){const span=document.createElement('span');span.className='piece '+(p.color==='w'?'white':'black');span.textContent=glyph[p.color+p.type];span.draggable=canHumanMove()&&p.color===game.turn();d.append(span);}
+  if((orientation==='w'&&r===7)||(orientation==='b'&&r===0)){const co=document.createElement('small');co.className='coord';co.textContent=files[c];d.append(co);}
+  el.append(d);
+ }
+ setStatus();renderHistory();renderMaterial();
+ $('movesCount').textContent=game.history().length;$('captures').textContent=captures;
+}
+function renderHistory(){
+ const h=game.history();if(!h.length){$('history').innerHTML='<div class="moves-empty">Your moves will appear here.</div>';return;}
+ let html='';for(let i=0;i<h.length;i+=2){html+='<div class="move-row"><span class="move-no">'+(i/2+1)+'.</span><span class="move">'+h[i]+'</span><span class="move">'+(h[i+1]||'')+'</span></div>';}
+ $('history').innerHTML=html;$('history').scrollTop=$('history').scrollHeight;
+}
+function renderMaterial(){
+ const vals={p:1,n:3,b:3,r:5,q:9};let score=0;
+ for(const row of game.board())for(const p of row)if(p&&p.type!=='k')score+=(p.color==='w'?1:-1)*vals[p.type];
+ $('material').textContent=score===0?'Material even':(score>0?'White':'Black')+' +'+Math.abs(score);
+}
+function choose(sq){
+ if(!canHumanMove())return;
+ const p=pieceAt(sq);
+ if(selected&&targets.some(m=>m.to===sq)){makeMove(selected,sq);return;}
+ if(p&&p.color===game.turn()){selected=sq;targets=game.moves({square:sq,verbose:true});renderBoard();}
+ else{selected=null;targets=[];renderBoard();}
+}
+function makeMove(from,to,promotion='q'){
+ let m;try{const legal=game.moves({square:from,verbose:true}).find(x=>x.to===to);if(!legal)return;
+ if(legal.promotion){const choice=(prompt('Promote pawn to: Q (queen), R (rook), B (bishop), or N (knight)','q')||'q').toLowerCase();promotion=['q','r','b','n'].includes(choice)?choice:'q';}
+ const before=game.turn();m=game.move({from,to,promotion});
+ }catch(e){return;}
+ selected=null;targets=[];lastMove={from:m.from,to:m.to};if(m.captured)captures++;
+ const details=[];
+ if(m.captured)details.push('You captured a '+m.captured+'.');
+ if(m.san.includes('+'))details.push('Your move gives check.');
+ if(m.san.includes('#'))details.push('Checkmate!');
+ if(m.flags.includes('k')||m.flags.includes('q'))details.push('You castled and moved your king to safety.');
+ if(m.promotion)details.push('Your pawn promoted to a '+m.promotion+'.');
+ if(details.length)coach(details.join(' '));else coach('Move '+m.san+' played. Before your next move, check your opponent’s possible checks, captures and threats.');
+ renderBoard();
+ if(game.isGameOver())return;
+ if(mode==='computer'&&game.turn()!==human){botBusy=true;$('turnLabel').textContent='Academy Bot is thinking…';setTimeout(botMove,100);}
+}
+$('board').addEventListener('click',e=>{const cell=e.target.closest('.sq');if(cell)choose(cell.dataset.square);});
+$('board').addEventListener('dragstart',e=>{const cell=e.target.closest('.sq');if(!cell||!canHumanMove())return;const p=pieceAt(cell.dataset.square);if(!p||p.color!==game.turn())return;selected=cell.dataset.square;targets=game.moves({square:selected,verbose:true});e.dataTransfer.setData('text/plain',selected);});
+$('board').addEventListener('dragover',e=>{if(e.target.closest('.sq'))e.preventDefault();});
+$('board').addEventListener('drop',e=>{const cell=e.target.closest('.sq');if(!cell)return;e.preventDefault();const from=e.dataTransfer.getData('text/plain');if(from)makeMove(from,cell.dataset.square);});
+function evaluate(chess,color){
+ if(chess.isCheckmate())return chess.turn()===color?-100000:100000;
+ if(chess.isDraw())return 0;
+ const value={p:100,n:320,b:335,r:500,q:900,k:0};let score=0;
+ const b=chess.board();
+ for(let r=0;r<8;r++)for(let c=0;c<8;c++){const p=b[r][c];if(!p)continue;let v=value[p.type];if(p.type==='p')v+=p.color==='w'?(6-r)*7:(r-1)*7;if(p.type==='n'||p.type==='b')v+=(3.5-Math.abs(3.5-c))+(3.5-Math.abs(3.5-r));score+=(p.color===color?1:-1)*v;}
+ return score;
+}
+let nodeCount=0;
+function minimax(chess,depth,alpha,beta,color){
+ nodeCount++;if(depth===0||chess.isGameOver()||nodeCount>9000)return evaluate(chess,color);
+ const maximizing=chess.turn()===color;let best=maximizing?-Infinity:Infinity;
+ const moves=chess.moves({verbose:true});
+ for(const m of moves){chess.move({from:m.from,to:m.to,promotion:m.promotion||'q'});const val=minimax(chess,depth-1,alpha,beta,color);chess.undo();
+ if(maximizing){best=Math.max(best,val);alpha=Math.max(alpha,best);}else{best=Math.min(best,val);beta=Math.min(beta,best);}if(beta<=alpha||nodeCount>9000)break;}
+ return best;
+}
+function botMove(){
+ if(game.isGameOver()){botBusy=false;return;}
+ const color=game.turn(),moves=game.moves({verbose:true});if(!moves.length){botBusy=false;return;}
+ nodeCount=0;const depth=Number($('strength').value);let best=-Infinity,choice=moves[0],ranked=[];
+ for(const m of moves){game.move({from:m.from,to:m.to,promotion:m.promotion||'q'});const score=minimax(game,depth-1,-Infinity,Infinity,color);game.undo();let noise=depth===1?Math.random()*150:depth===2?Math.random()*35:0;ranked.push({m,score:score+noise});}
+ ranked.sort((a,b)=>b.score-a.score);choice=ranked[0].m;
+ const m=game.move({from:choice.from,to:choice.to,promotion:choice.promotion||'q'});lastMove={from:m.from,to:m.to};if(m.captured)captures++;botBusy=false;selected=null;targets=[];renderBoard();
+ if(game.isGameOver())coach('The game is over. '+$('turnLabel').textContent+'. Start another game or review the moves.');else coach('The bot played '+m.san+'. Look at what changed: which of your pieces or squares are now under pressure?');
+}
+function startGame(){
+ game=new Chess();selected=null;targets=[];lastMove=null;captures=0;completed=false;botBusy=false;mode=$('mode').value;human=$('side').value;orientation=human==='w'?'w':'b';
+ $('opName').textContent=mode==='local'?'Local player':'Academy Bot';$('opLabel').textContent=mode==='local'?'Two players · same device':'Local search · practice strength';$('opAvatar').textContent=mode==='local'?'♟':'🤖';$('strengthField').classList.toggle('hide',mode==='local');
+ coach(mode==='local'?'Local two-player game started. White moves first.':'New game started. '+(human==='w'?'You play White.':'You play Black.')+' Remember: center, development, king safety.');
+ renderBoard();if(mode==='computer'&&human==='b'){botBusy=true;setTimeout(botMove,200);}
+}
+$('newGame').addEventListener('click',()=>{if(game.history().length&&!confirm('Start a new game? The current game will end.'))return;startGame();});
+$('undo').addEventListener('click',()=>{if(botBusy)return;if(!game.history().length)return;game.undo();if(mode==='computer'&&game.history().length)game.undo();const hist=game.history({verbose:true});lastMove=hist.length?{from:hist[hist.length-1].from,to:hist[hist.length-1].to}:null;captures=hist.filter(m=>m.captured).length;completed=false;selected=null;targets=[];renderBoard();coach('Last move undone. Take another look at the position before choosing again.');});
+$('flip').addEventListener('click',()=>{orientation=orientation==='w'?'b':'w';renderBoard();});
+$('mode').addEventListener('change',startGame);$('side').addEventListener('change',startGame);
+$('strength').addEventListener('change',()=>coach('Bot level changed. Higher levels search more replies, but this is still a small practice bot.'));
+$('hint').addEventListener('click',()=>{if(game.isGameOver()){coach('The game has ended. Start a new game to keep practicing.');return;}const tips=['Look for checks first: can you give check safely?','Look for captures: is an opponent piece undefended?','Look for threats: can you attack a valuable piece?','Before moving, make sure your own king and queen are safe.','Improve your least active piece and keep control of the center.'];coach(tips[Math.floor(Math.random()*tips.length)]);});
+$('principle').addEventListener('click',()=>coach('Thinking checklist: 1) What did my opponent’s last move threaten? 2) Are there checks or captures? 3) What is my weakest piece? 4) Is my king safe after my move?'));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b===btn));$('play').classList.toggle('hide',btn.dataset.tab!=='play');$('learn').classList.toggle('hide',btn.dataset.tab!=='learn');}));
+startGame();
+</script>
+</body></html>
