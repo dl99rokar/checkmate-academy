@@ -2,5 +2,7 @@ services:
   - type: web
     name: checkmate-academy
     runtime: static
-    staticPublishPath: .
+    repo: https://github.com/dl99rokar/checkmate-academy
+    branch: main
     buildCommand: echo "Publishing the static chess website"
+    staticPublishPath: .
