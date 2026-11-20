@@ -6,3 +6,4 @@ services:
     branch: main
     buildCommand: echo "Publishing the static chess website"
     staticPublishPath: .
+    autoDeploy: false
