@@ -27,10 +27,14 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare website
+        run: |
+          mkdir -p _site
+          cp index.html _site/index.html
       - name: Upload website files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
