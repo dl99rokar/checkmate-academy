@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: checkmate-academy
+    runtime: static
+    staticPublishPath: .
+    buildCommand: echo "Publishing the static chess website"
